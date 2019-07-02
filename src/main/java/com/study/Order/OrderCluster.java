@@ -9,17 +9,9 @@ public class OrderCluster {
     private static int current = 20;
     public static void main(String[] args) {
         CyclicBarrier cyclicBarrier = new CyclicBarrier(current);
+        OrderService orderService = new OrderService();
         for (int i = 0; i < current; i++) {
-            new Thread(() -> {
-                try {
-                    cyclicBarrier.await();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                OrderGeneratorTool orderGeneratorTool = new OrderGeneratorTool();
-                String number = orderGeneratorTool.creatOrderNumber();
-                System.out.println(Thread.currentThread().getName() + "  " + number);
-            }).start();
+            new Thread(orderService).start();
 
         }
     }
