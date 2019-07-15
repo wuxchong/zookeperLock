@@ -1,6 +1,6 @@
 package com.study.algorithm;
 
-//八皇后问题
+//八皇后问题，参考：https://www.cnblogs.com/newflydd/p/5091646.html
 public class Queen8 {
 
     private static final int K = 8;
